@@ -3,10 +3,12 @@ void GuessingGame()
 {
     pickANumber();
 };
-int theSecretNumber = 42;
+
 void pickANumber()
 {
-    Console.Write("Guess the number? (1-50):");
+    Console.Write("Guess the number? (1-100):");
+
+    int theSecretNumber = new Random().Next(1, 101);
     int userGuess = int.Parse(Console.ReadLine());
     int i = 1;
     while (userGuess != theSecretNumber && i < 4)
@@ -15,8 +17,8 @@ void pickANumber()
 
         if (userGuess != theSecretNumber)
         {
-            Console.WriteLine($"Chance {1-50}");
-            Console.WriteLine("Try again (1-50):");
+            Console.WriteLine($"Chance {i + 1}");
+            Console.WriteLine("Try again (1-100):");
             
             userGuess = int.Parse(Console.ReadLine());
 
@@ -33,7 +35,7 @@ void pickANumber()
     }
     else
     {
-        Console.WriteLine("Sorry your wrong");
+        Console.WriteLine("Sorry you're wrong");
 
     }
 }
