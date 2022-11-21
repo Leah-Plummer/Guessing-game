@@ -17,6 +17,11 @@ void pickANumber()
 
         if (userGuess != theSecretNumber)
         {
+           if (userGuess > theSecretNumber){
+                Console.WriteLine("Too High");
+           }else {
+                Console.WriteLine("Too Low");
+           };
             Console.WriteLine($"Chance {i + 1}");
             Console.WriteLine("Try again (1-100):");
             
