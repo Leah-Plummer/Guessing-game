@@ -10,9 +10,10 @@ void pickANumber()
     
     string userLevel = Console.ReadLine().ToLower();
   
+    bool cheater = false;
     int guesses = 0;
 
-     while (userLevel != "easy" && userLevel != "medium" && userLevel != "hard")
+     while (userLevel != "easy" && userLevel != "medium" && userLevel != "hard" && userLevel != "cheater")
     {
         Console.Write("Please enter either easy, medium, or hard.");
         userLevel = Console.ReadLine().ToLower();
@@ -31,13 +32,17 @@ void pickANumber()
         {
             guesses = 4; 
         }
+        else if (userLevel == "cheater")
+        {
+            cheater = true; 
+        }
         
     Console.WriteLine("Guess the number? (1-100):");
 
     int theSecretNumber = new Random().Next(1, 101);
     int userGuess = int.Parse(Console.ReadLine());
     int i = 1;
-    while (userGuess != theSecretNumber && i < guesses)
+    while ((userGuess != theSecretNumber && i < guesses) || (userGuess != theSecretNumber && cheater))
     {
 
 
