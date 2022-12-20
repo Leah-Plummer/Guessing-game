@@ -15,7 +15,7 @@ void pickANumber()
 
      while (userLevel != "easy" && userLevel != "medium" && userLevel != "hard" && userLevel != "cheater")
     {
-        Console.Write("Please enter either easy, medium, or hard.");
+        Console.WriteLine("Please enter either easy, medium, or hard.");
         userLevel = Console.ReadLine().ToLower();
 
     }
@@ -49,11 +49,19 @@ void pickANumber()
         if (userGuess != theSecretNumber)
         {
            if (userGuess > theSecretNumber){
+                Console.WriteLine(); 
                 Console.WriteLine("Too High");
            }else {
+                Console.WriteLine();
                 Console.WriteLine("Too Low");
            };
-            Console.WriteLine($"You have {guesses - i} guesses left!");
+           
+           if (cheater){
+                Console.WriteLine("You have infinite guesses left, cheater!");
+           }else {
+                Console.WriteLine($"You have {guesses - i} guesses left!");
+           };
+           
             Console.WriteLine("Try again (1-100):");
             
             userGuess = int.Parse(Console.ReadLine());
